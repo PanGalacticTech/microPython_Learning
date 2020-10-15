@@ -1,0 +1,13 @@
+Requires install of python 3
+
+Download micropython contents
+
+Download ESP32 micropython.bin file
+
+
+pip install esptool
+
+esptool.py --port COM[15] erase_flash
+
+esptool.py --chip esp32 --port COM(15) write_flash -z 0x1000 esp32-20180511-v1.9.4.bin
+
