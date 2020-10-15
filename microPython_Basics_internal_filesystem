@@ -1,0 +1,48 @@
+To create a file try:
+
+>>> f = open('data.txt', 'w')
+>>> f.write('some data')
+9
+>>> f.close()
+
+The “9” is the number of bytes that were written with the write() method.
+Then you can read back the contents of this new file using:
+
+>>> f = open('data.txt')
+>>> f.read()
+'some data'
+>>> f.close()
+
+Note that the default mode when opening a file is to open it in read-only mode,
+and as a text file. Specify 'wb' as the second argument to open()
+to open for writing in binary mode, and 'rb' to open for reading in binary mode.
+
+
+
+3.2. Listing file and more
+The os module can be used for further control over the filesystem. First import the module:
+
+>>> import os
+
+Then try listing the contents of the filesystem:
+
+>>> os.listdir()
+['boot.py', 'port_config.py', 'data.txt']
+
+You can make directories:
+
+>>> os.mkdir('dir')
+
+And remove entries:
+
+>>> os.remove('data.txt')
+
+
+3.3. Start up scripts
+There are two files that are treated specially
+by the ESP8266 when it starts up: boot.py and main.py. 
+The boot.py script is executed first (if it exists) and then
+once it completes the main.py script is executed. 
+
+You can create these files yourself and populate them with 
+the code that you want to run when the device starts up.
