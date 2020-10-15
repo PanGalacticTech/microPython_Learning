@@ -1,0 +1,42 @@
+If your board has an LED attached to GPIO2 (the ESP-12 modules do) then you can turn it on and off using the following code:
+
+>>> import machine
+>>> pin = machine.Pin(2, machine.Pin.OUT)
+>>> pin.on()
+>>> pin.off()
+
+
+
+// Defining a Function:
+
+>>> def toggle(p):
+...    p.value(not p.value())
+...
+...
+...
+>>>
+
+// Calling Named Function
+
+>>> toggle(pin)
+
+
+Let’s now toggle the LED in a loop (if you don’t have an LED then you can just print some text instead of calling toggle, to see the effect):
+
+>>> import time
+>>> while True:
+...     toggle(pin)
+...     time.sleep_ms(500)
+...
+...
+...
+>>>
+
+// More Complex Function
+
+>>> def flashOn(t):
+      while True:
+        toggle(pin)
+        time.sleep_ms(t)
+        
+        
